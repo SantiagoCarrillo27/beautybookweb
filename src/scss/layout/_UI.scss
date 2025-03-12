@@ -1,0 +1,386 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.barra {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 200;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid v.$colorDisabled;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    .material-symbols-outlined {
+      width: 2.5rem;
+      color: v.$colorAzul;
+      font-size: 2.5rem;
+    }
+    h2 {
+      opacity: 0;
+      font-size: 2rem;
+      margin: 0;
+      color: v.$negro;
+      transition: opacity 0.3s ease, width 0.3s ease;
+      width: 0;
+      pointer-events: none;
+      span {
+        color: v.$colorAzul;
+      }
+
+      @include m.tablet {
+        opacity: 1;
+        pointer-events: visible;
+      }
+    }
+  }
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  a {
+    // border: 1px solid v.$colorAzul;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    color: v.$colorAzul;
+    &:hover {
+      background-color: v.$colorAzul;
+      color: v.$blanco;
+    }
+
+    &:last-of-type {
+      padding: 0 0 0 0.7rem;
+    }
+
+    @include m.telefono {
+      &:last-of-type {
+        padding: 0 0.3rem 0 1.3rem;
+      }
+    }
+
+    i {
+      margin: 0.4rem;
+      font-size: 2.3rem;
+      transition: margin 0.3s ease;
+
+      @include m.telefono {
+        margin: 0.7rem;
+      }
+    }
+  }
+}
+
+.scrolled {
+  border-bottom: 1px solid v.$colorMagenta;
+  background-color: v.$colorAzul;
+  .left {
+    .menu {
+      span {
+        background-color: v.$blanco;
+      }
+    }
+  }
+
+  .brand {
+    .material-symbols-outlined {
+      color: v.$colorMagenta;
+    }
+
+    h2 {
+      color: v.$blanco;
+      span {
+        color: v.$colorMagenta;
+      }
+    }
+  }
+
+  .right {
+    a {
+      color: v.$blanco;
+
+      &:hover {
+        background-color: v.$colorMagenta;
+      }
+    }
+  }
+}
+
+//MENU HAMBURGUESA
+.menu-hamburguer {
+  z-index: 100;
+  position: fixed;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  font-size: 3rem;
+  background-color: v.$colorMagenta;
+  color: v.$blanco;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  right: 1rem;
+  top: 1rem;
+
+  span {
+    font-size: 2.5rem;
+    transition: opacity 0.5s ease;
+  }
+
+  span:nth-child(2) {
+    display: none;
+  }
+
+  &.is-open span:nth-child(1) {
+    display: none;
+  }
+  &.is-open span:nth-child(2) {
+    display: block;
+  }
+
+  @include m.tablet {
+    display: none;
+  }
+}
+
+.barra-servicios-admin {
+  //MOSTRAR BARRA DISPOSITIVOS MÓVILES
+  &.max-barra-lateral {
+    left: 0;
+  }
+  z-index: 10;
+  position: fixed;
+  width: 25rem;
+  left: -25rem;
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+  background-color: v.$colorAzul;
+  transition: width 0.5s ease, left 0.5s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include m.tablet {
+    left: 0;
+  }
+
+  .bnt-logout {
+    width: 100%;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    color: v.$blanco;
+    border-radius: 1rem;
+    background-color: transparent;
+    transition: all 0.4s ease;
+    // background-color: v.$colorMagenta;
+    &:hover {
+      background-color: darken(v.$colorMagenta, 10%);
+    }
+
+    i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 5rem;
+      font-size: 2rem;
+    }
+    span {
+      white-space: nowrap;
+    }
+  }
+
+  .headers {
+    width: 100%;
+    height: 4.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 4rem;
+
+    .material-symbols-outlined {
+      min-width: 5rem;
+      font-size: 4rem;
+      color: v.$blanco;
+    }
+
+    .logo-admin {
+      font-size: 2.1rem;
+      margin: 0;
+      width: 10rem;
+      white-space: nowrap;
+      color: v.$blanco;
+      letter-spacing: 0.2rem;
+      opacity: 1;
+      transition: opacity 0.5s ease, width 0.5s ease;
+      span {
+        color: v.$colorMagenta;
+      }
+    }
+
+    .ocultar {
+      opacity: 0;
+      width: 0;
+    }
+  }
+}
+
+.navegacion {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: v.$colorMagenta;
+    border-radius: 0.5rem;
+
+    &:hover {
+      background-color: lighten(v.$colorMagenta, 10%);
+    }
+  }
+
+  ul {
+    padding: 0;
+
+    li {
+      list-style: none;
+      display: flex;
+      margin-bottom: 0.5rem;
+
+      a {
+        width: 100%;
+        height: 4.5rem;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 1rem;
+        color: v.$blanco;
+        transition: background-color 0.4s ease;
+
+        .material-symbols-outlined {
+          // border: 2px solid green;
+          min-width: 5rem;
+          font-size: 2rem;
+          text-align: center;
+        }
+
+        .logo-admin {
+          //EVITAR SALTOS DE TEXTO EN TRANSICIONES
+          white-space: nowrap;
+        }
+
+        &:hover {
+          background-color: darken(v.$colorMagenta, 10%);
+        }
+      }
+    }
+  }
+}
+
+.usuario {
+  color: v.$blanco;
+  display: flex;
+  align-items: center;
+  height: 4.5rem;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  border-radius: 1rem;
+
+  &:hover {
+    background-color: darken(v.$colorMagenta, 10%);
+    .logo-admin {
+      span {
+        color: v.$blanco;
+      }
+    }
+  }
+
+  .logo-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    min-width: 5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+  .logo-admin {
+    color: v.$blanco;
+    font-size: 1.5rem;
+    min-width: 0;
+    margin: 0;
+    width: 100%;
+    white-space: nowrap;
+    max-width: 14rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    span {
+      // color: v.$colorMagenta;
+      color: currentColor;
+      font-weight: v.$bold;
+      font-size: 1.7rem;
+    }
+  }
+}
+
+.barra-mini-admin {
+  width: 8rem;
+}
+
+// ICONOS
+.material-symbols-outlined {
+  vertical-align: middle;
+  font-size: 2.1rem;
+  @include m.tablet {
+    font-size: 2rem;
+  }
+}
+
+// PERSONALIZACIÓN DE LA LIBRERÍA PARA DATE Y TIME
+
+.span.flatpickr-weekday {
+  color: v.$colorMagenta;
+}
+.flatpickr-day:hover {
+  background-color: v.$colorMagenta;
+  color: v.$blanco;
+}
+
+.flatpickr-day.selected {
+  background-color: v.$colorAzul;
+}
+
+.flatpickr-time input.flatpickr-hour {
+  background-color: v.$colorDisabled;
+}
+
+.flatpickr-day.flatpickr-disabled {
+  color: rgb(231, 227, 227);
+}

@@ -1,0 +1,1 @@
+function iniciarApp(){buscarPorFecha()}function buscarPorFecha(){const e=document.querySelector("#fecha");flatpickr(e,{dateFormat:"Y-m-d",locale:"es",disableMobile:!0,onClose:function(e,n){n&&(window.location=`?fecha=${n}`)}})}document.addEventListener("DOMContentLoaded",(function(){iniciarApp()}));

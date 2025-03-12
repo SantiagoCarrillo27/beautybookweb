@@ -1,0 +1,140 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+// MOSTRAR INFORMACIÓN DE CITAS APARTADAS 
+
+.citas {
+  // border: 2px solid green;
+  width: 100%;
+  padding: 2rem;
+  list-style: none;
+  padding: 0 2rem;  
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 2rem;
+    margin-bottom: 2rem;
+
+    // border: 2px solid red;
+
+
+    // &:last-of-type{
+    //   border: none;
+    // }
+
+    h3{
+      margin: 2rem 0;
+    }
+
+    p {
+      font-weight: v.$bold;
+      color: v.$colorAzul;
+      span{
+        color: v.$negro;
+        font-weight: v.$regular;
+      }
+    }
+
+    .datos-servicio{
+      color: v.$negro;
+      font-weight: v.$regular;
+      span{
+        font-weight: v.$bold;
+        color: v.$colorAzul;
+      }
+    }
+  }
+}
+
+// MOSTRAR LOS SERVICIOS CREADOS
+.servicios {
+  @include m.grid(1, 2rem);
+
+  @include m.tablet {
+    @include m.grid(2, 2rem);
+  }
+
+  @include m.desktop {
+    @include m.grid(3, 2rem);
+  }
+
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 50px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    padding: 1.6rem;
+    &:hover,
+    &:focus-within {
+      box-shadow: 0 0 0 0.1rem v.$colorAzul, 0 10px 60px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  figure { 
+    width: 100%;
+    // margin: 0;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      border-radius: 1.5rem;
+      height: 30rem;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .datos{
+    p{
+      margin: 0;
+      color: v.$colorAzul;
+      font-weight: v.$bold;
+      padding: 1.5rem 1rem .5rem;
+      span{
+        color: v.$negro;
+        font-weight: normal;
+      }
+    }
+
+
+  }
+  
+  .border{
+    display: block;
+    border: 1px solid v.$colorBordes;
+    margin: 1.5rem 0;
+  }
+
+  .acciones {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    width: 100%;
+
+    .boton{
+      color: v.$blanco;
+      font-size: 1.6rem;
+      width: 100%;
+    }
+
+    form{
+      width: 100%;
+      .boton-eliminar{
+        margin: 0;
+        width: 100%;
+      }
+    }
+
+    
+  }
+}

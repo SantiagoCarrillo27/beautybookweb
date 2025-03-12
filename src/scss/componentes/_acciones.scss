@@ -1,0 +1,30 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.acciones{
+    padding: 2rem 1rem;
+
+    @include m.tablet{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    span{
+        color: v.$colorAzul;
+        font-weight: v.$bold;
+    }
+
+    a{
+        color: v.$negro;
+        display: block;
+        margin-bottom: calc(v.$separacion / 3);
+        text-align: center;
+        font-size: 1.3rem;
+
+    }
+    .boton{
+        margin: 0;
+    }
+}

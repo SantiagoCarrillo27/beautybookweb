@@ -1,0 +1,95 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+
+//ESTILOS PARA LOS FORMULARIOS DE LOGIN REGISTRO YY RECUPERAR PASSWORD
+.contenedor-img {
+  width: 25rem;
+  display: none;
+  @include m.tablet {
+    display: block;
+  }
+
+  .img-formulario {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.contenedor-forms {
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.formulario {
+  width: 80%;
+  margin: 1rem auto;
+
+  .boton {
+    width: 100%;
+    margin: 2rem 0;
+    font-size: 1.3rem;
+
+    @include m.tablet {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  label {
+    margin-bottom: 0.5rem;
+  }
+
+  img {
+    margin: 1rem;
+    width: 30rem;
+    height:30rem;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 1.6rem;
+
+  }
+
+  #preview-container {
+    img {
+      display: none;
+    }
+  }
+  .contenedor-input {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .material-symbols-outlined {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+      font-weight: 300;
+      color: rgb(183, 169, 169);
+    }
+
+    .icon-view {
+      pointer-events: none;
+    }
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    padding: calc(v.$separacion / 4);
+    outline: 1px solid v.$gris;
+    border-radius: 1rem;
+
+    &:disabled {
+      background-color: v.$colorDisabled;
+      color: v.$negro;
+      cursor: not-allowed;
+    }
+  }
+}

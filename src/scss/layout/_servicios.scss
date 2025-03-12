@@ -1,0 +1,111 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+p {
+  margin-bottom: 3.5rem;
+}
+
+.sin-servicios{
+  display: block;
+  .sin-info{
+    display: block;
+    margin: 4rem auto 0;
+    max-width: 60rem;
+  }
+}
+
+.listado-servicios {
+  @include m.grid(1,2rem);
+
+  @include m.tablet{
+    @include m.grid(2,2rem); 
+  }
+
+  @include m.desktop{
+    @include m.grid(3,2rem);
+  }
+
+
+  .servicio {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.6rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 50px 0 rgba(0, 0, 0, 0.1);
+    transition: 0.15s ease-in;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    // &:focus-within
+    &:hover{
+      box-shadow: 0 0 0 0.1rem v.$colorAzul, 0 10px 60px 0 rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+    }
+
+    @include m.tablet {
+      max-width: 38rem;
+    }
+
+    .imagen-servicio {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      border-radius: 1.5rem;
+      height: 30rem;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .nombre-servicio {
+      margin: 2.3rem 0;
+      font-weight: 600;
+      font-size: 2.5rem;
+    }
+    .precio-servicio {
+      color: v.$colorAzul;
+      font-weight: v.$bold;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .border-footer{
+      display: block;
+      border-bottom: 1px solid v.$colorBordes;
+      margin: 1rem 0;
+    }
+
+    .btn-footer{
+      @include m.boton(v.$colorAzul, v.$blanco);
+      border: 1px solid v.$colorAzul;
+      background-color: transparent;
+      color: v.$colorAzul;
+      margin: 1rem 0;
+      font-size: 1.7rem;
+
+      &:hover{
+        color: v.$blanco;
+        background-color: v.$colorAzul;
+
+      }
+    }
+
+     /** ✅ Estilos cuando el servicio está seleccionado **/
+     &.seleccionado {
+      box-shadow: 0 0 0 0.2rem v.$colorSelected, 0 10px 60px 0 rgba(0, 0, 0, 0.1);
+      transform: translateY(-3px);
+
+      .btn-footer{
+        background-color: v.$colorSelected;
+        color: v.$blanco;
+        border: 1px solid v.$colorSelected;
+      }
+    
+    }
+  }
+
+  
+
+}
