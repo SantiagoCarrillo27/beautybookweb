@@ -28,7 +28,7 @@ if (isset($_SESSION['admin'])) { ?>
                     account_circle
                 </span>
 
-                <p class="logo-admin"><span><?php echo $nombre ?? ''; ?></span>
+                <p class="logo-admin"><span><?php echo $nombre ?? ''; ?></span></p>
             </div>
 
 

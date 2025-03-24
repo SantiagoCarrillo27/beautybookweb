@@ -12,6 +12,9 @@ if (!isset($_SESSION['admin'])) { ?>
 
 
         <div class="right">
+
+        <span class="name-user"><?php echo $nombre ?? ''; ?></span>
+
             <a class="menu-icons" href="#"><i class="material-symbols-outlined">notifications</i></a>
 
 
