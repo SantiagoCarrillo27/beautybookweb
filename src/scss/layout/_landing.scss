@@ -17,32 +17,17 @@
     rgba(29, 174, 204, 1) 100%
   );
 
-  @include m.tablet{
-  padding: 0 4rem;
-  }
-
-}
-
-.loginBtn{
-  color: v.$blanco;
-  font-size: 2rem;
-  transition: all .4s ease;
-  outline: 1px solid v.$colorMagenta;
-  padding: 1rem 2rem;
-  font-weight: bold;
-  border-radius: 1rem;
-  &:hover{
-    background-color: v.$colorMagenta;
+  @include m.tablet {
+    padding: 0 4rem;
   }
 }
-
 
 .nav-landing {
   width: 100%;
   height: auto;
   padding: 2.5rem 0;
 
-  ul{
+  ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -55,23 +40,46 @@
 
     h2 {
       cursor: pointer;
-      font-size: 2rem;
       margin: 0;
       color: v.$blanco;
+      font-size: 1.5rem;
       span {
         color: v.$colorMagenta;
+      }
+
+      @include m.tablet {
+        font-size: 2rem;
       }
     }
 
     .span-landing-icon {
-      font-size: 3rem;
       cursor: pointer;
+
+      @include m.tablet {
+        font-size: 3rem;
+      }
     }
   }
 }
 
+.loginBtn {
+  color: v.$blanco;
+  transition: all 0.4s ease;
+  outline: 1px solid v.$colorMagenta;
+  font-weight: bold;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
 
-main{
+  @include m.tablet {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+  }
+  &:hover {
+    background-color: v.$colorMagenta;
+  }
+}
+
+main {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,59 +88,55 @@ main{
   gap: 3rem;
   margin: 3rem 0;
 
-  @include m.tablet{
+  @include m.tablet {
     flex-direction: row;
     gap: 5rem;
   }
 
-  div{
-
-    h3,p{
+  div {
+    h3,
+    p {
       color: v.$blanco;
-
     }
 
     width: 100%;
 
-    @include m.tablet{
-
+    @include m.tablet {
       max-width: 50rem;
     }
-    
-    .boton{
+
+    .boton {
       @include m.boton(v.$colorMagenta, v.$blanco);
       margin: 0;
       width: 100%;
       font-size: 2rem;
-
     }
 
-    span{
+    span {
       color: v.$colorMagenta;
       font-weight: bold;
     }
   }
 
-  figure{
+  figure {
     order: -1;
-    @include m.tablet{
+    @include m.tablet {
       order: 1;
     }
-    img{
+    img {
       width: 30rem;
       border-radius: 2rem;
 
-      @include m.tablet{
+      @include m.tablet {
         width: 40rem;
       }
     }
   }
 }
 
-
-footer{
+footer {
   padding: 1.5rem 0;
-  p{
+  p {
     text-align: center;
     color: v.$blanco;
   }
