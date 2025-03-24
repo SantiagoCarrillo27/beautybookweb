@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0 4rem;
+  padding: 0 2rem;
   color: v.$blanco;
   width: 100%;
   min-height: 100dvh;
@@ -16,6 +16,11 @@
     rgba(36, 15, 172, 0.9501050420168067) 50%,
     rgba(29, 174, 204, 1) 100%
   );
+
+  @include m.tablet{
+  padding: 0 4rem;
+  }
+
 }
 
 .loginBtn{
@@ -71,13 +76,26 @@ h3,p{
 
 main{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  gap: 5rem;
+  gap: 3rem;
+  margin: 3rem 0;
+
+  @include m.tablet{
+    flex-direction: row;
+    gap: 5rem;
+  }
 
   div{
-    max-width: 50rem;
+
+    width: 100%;
+
+    @include m.tablet{
+
+      max-width: 50rem;
+    }
     
     .boton{
       @include m.boton(v.$colorMagenta, v.$blanco);
@@ -94,9 +112,17 @@ main{
   }
 
   figure{
+    order: -1;
+    @include m.tablet{
+      order: 1;
+    }
     img{
-      width: 40rem;
+      width: 30rem;
       border-radius: 2rem;
+
+      @include m.tablet{
+        width: 40rem;
+      }
     }
   }
 }
