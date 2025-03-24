@@ -1,0 +1,110 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.container-landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 4rem;
+  color: v.$blanco;
+  width: 100%;
+  min-height: 100dvh;
+  background: rgb(21, 13, 154);
+  background: linear-gradient(
+    148deg,
+    rgba(21, 13, 154, 1) 0%,
+    rgba(36, 15, 172, 0.9501050420168067) 50%,
+    rgba(29, 174, 204, 1) 100%
+  );
+}
+
+.loginBtn{
+  color: v.$blanco;
+  font-size: 2rem;
+  transition: all .4s ease;
+  outline: 1px solid v.$colorMagenta;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  &:hover{
+    background-color: v.$colorMagenta;
+  }
+}
+
+
+.nav-landing {
+  width: 100%;
+  height: auto;
+  padding: 2.5rem 0;
+
+  ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    h2 {
+      cursor: pointer;
+      font-size: 2rem;
+      margin: 0;
+      color: v.$blanco;
+      span {
+        color: v.$colorMagenta;
+      }
+    }
+
+    .span-landing-icon {
+      font-size: 3rem;
+      cursor: pointer;
+    }
+  }
+}
+
+h3,p{
+  color: v.$blanco;
+}
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 5rem;
+
+  div{
+    max-width: 50rem;
+    
+    .boton{
+      @include m.boton(v.$colorMagenta, v.$blanco);
+      margin: 0;
+      width: 100%;
+      font-size: 2rem;
+
+    }
+
+    span{
+      color: v.$colorMagenta;
+      font-weight: bold;
+    }
+  }
+
+  figure{
+    img{
+      width: 40rem;
+      border-radius: 2rem;
+    }
+  }
+}
+
+
+footer{
+  padding: 1.5rem 0;
+  p{
+    text-align: center;
+  }
+}

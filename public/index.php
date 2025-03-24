@@ -7,14 +7,19 @@ use Controllers\APIController;
 use Controllers\CitaController;
 use Controllers\LoginController;
 use Controllers\ServicioController;
+use Controllers\LandingController;
 use MVC\Router;
 
 $router = new Router();
 
+// LANDING PAGE
+
+$router->get('/', [LandingController::class, 'index']);
+
 // INICIAR SESIÓN
 
-$router->get('/', [LoginController::class, 'login']);
-$router->post('/', [LoginController::class, 'login']);
+$router->get('/login', [LoginController::class, 'login']);
+$router->post('/login', [LoginController::class, 'login']);
 $router->get('/logout', [LoginController::class, 'logout']);
 
 
